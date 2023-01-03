@@ -1,0 +1,34 @@
+{
+    "name": "PW UITest Extension",
+    "description": "Extensions for main UITest app",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["script.js"]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "host_permissions": [
+        "<all_urls>",
+        "http://localhost:3000/*"
+    ],
+    "permissions": [
+        "scripting",
+        "storage"
+    ],
+    "options_ui": {
+        "page": "opt.html"
+    },
+    "externally_connectable": {
+        "matches": [
+            "http://localhost:3000/*"
+        ]
+    }
+}
